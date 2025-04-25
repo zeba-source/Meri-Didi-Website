@@ -83,11 +83,11 @@ function ServiceCarousel() {
             repeatType: "reverse", 
             repeatDelay: 5 
           }}
-          className="absolute top-1 right-2 z-10 transform -rotate-12"
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 -rotate-6"
         >
-          <div className="bg-gradient-to-r from-primary/90 via-primary to-primary/70 text-primary-foreground px-4 py-2 rounded-lg shadow-lg border-2 border-white flex items-center">
-            <div className="mr-2">
-              <svg width="24" height="24" viewBox="0 0 50 50" className="text-primary-foreground">
+          <div className="bg-gradient-to-r from-primary/90 via-primary to-primary/70 text-primary-foreground px-6 py-3 rounded-lg shadow-xl border-2 border-white flex items-center">
+            <div className="mr-3">
+              <svg width="32" height="32" viewBox="0 0 50 50" className="text-primary-foreground">
                 <defs>
                   <linearGradient id="apron-gradient-hero" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="white" />
@@ -100,8 +100,8 @@ function ServiceCarousel() {
               </svg>
             </div>
             <div>
-              <div className="font-bold text-xl tracking-tight font-heading">Meri Didi</div>
-              <div className="text-xs opacity-90">Home Services</div>
+              <div className="font-bold text-2xl tracking-tight font-heading">Meri Didi</div>
+              <div className="text-sm opacity-90">Home Services</div>
             </div>
           </div>
         </motion.div>

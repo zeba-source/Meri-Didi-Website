@@ -4,7 +4,10 @@ import {
   Twitter, 
   Instagram, 
   Linkedin, 
-  Globe 
+  Globe, 
+  QrCode,
+  AppleIcon,
+  Smartphone 
 } from "lucide-react";
 import { 
   DropdownMenu,
@@ -13,6 +16,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { fadeUpVariants } from "@/lib/animation-utils";
 
 const languages = [
   { code: "en", name: "English" },
@@ -29,26 +34,54 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center overflow-hidden">
                 <svg 
-                  width="16" 
-                  height="16" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
+                  width="24" 
+                  height="24" 
+                  viewBox="0 0 50 50" 
                   className="text-primary-foreground"
                 >
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                  <defs>
+                    <linearGradient id="apron-gradient-footer" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="white" />
+                      <stop offset="100%" stopColor="#f0f0f0" />
+                    </linearGradient>
+                    <linearGradient id="face-gradient-footer" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#ffe0bd" />
+                      <stop offset="100%" stopColor="#ffcd94" />
+                    </linearGradient>
+                    <linearGradient id="dress-gradient-footer" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#444" />
+                      <stop offset="100%" stopColor="#222" />
+                    </linearGradient>
+                  </defs>
+                  
+                  {/* Dress base */}
+                  <path d="M15 20 L15 42 L35 42 L35 20 Z" fill="url(#dress-gradient-footer)" />
+                  
+                  {/* Apron */}
+                  <path d="M17 22 L33 22 L33 40 L17 40 Z" fill="url(#apron-gradient-footer)" />
+                  <path d="M20 22 L20 16 L23 13 L27 13 L30 16 L30 22" fill="none" stroke="url(#apron-gradient-footer)" strokeWidth="1.5" />
+                  
+                  {/* Head/face */}
+                  <circle cx="25" cy="13" r="7" fill="url(#face-gradient-footer)" />
+                  
+                  {/* Hair with highlights */}
+                  <path d="M18 13 Q18 7, 25 6 Q32 7, 32 13" fill="#543" />
+                  <path d="M20 13 Q20 9, 25 8 Q30 9, 30 13" fill="#764" />
+                  
+                  {/* Eyes */}
+                  <ellipse cx="22" cy="12" rx="1" ry="1.5" fill="#333" />
+                  <ellipse cx="28" cy="12" rx="1" ry="1.5" fill="#333" />
+                  
+                  {/* Smile */}
+                  <path d="M23 15 Q25 17, 27 15" fill="none" stroke="#333" strokeWidth="0.7" />
                 </svg>
               </div>
-              <span className="text-lg font-heading font-bold text-white">HomeServices</span>
+              <span className="text-lg font-heading font-bold text-white">Meri Didi</span>
             </div>
             <p className="text-sm text-neutral-400 mb-4">
-              Premium home services for busy professionals.
+              India's premier platform connecting service companies with top domestic workers.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-neutral-400 hover:text-white transition-colors">
@@ -97,9 +130,56 @@ export default function Footer() {
           </div>
         </div>
         
+        {/* Mobile App Download Section */}
+        <div className="mt-8 p-6 bg-neutral-700 rounded-xl mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-white font-bold text-xl mb-3">Download Our Mobile App</h3>
+              <p className="text-neutral-300 mb-4">Access our services on-the-go. Book, track, and manage your home services from anywhere.</p>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <motion.a 
+                  href="#" 
+                  className="bg-black hover:bg-neutral-900 text-white px-4 py-3 rounded-lg flex items-center justify-center sm:justify-start space-x-3 transition-all"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <AppleIcon size={24} />
+                  <div>
+                    <div className="text-xs">Download on the</div>
+                    <div className="text-sm font-semibold">App Store</div>
+                  </div>
+                </motion.a>
+                
+                <motion.a 
+                  href="#" 
+                  className="bg-black hover:bg-neutral-900 text-white px-4 py-3 rounded-lg flex items-center justify-center sm:justify-start space-x-3 transition-all"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Smartphone size={24} />
+                  <div>
+                    <div className="text-xs">GET IT ON</div>
+                    <div className="text-sm font-semibold">Google Play</div>
+                  </div>
+                </motion.a>
+              </div>
+            </div>
+            
+            <div className="flex justify-center">
+              <div className="bg-white p-4 rounded-lg w-40 h-40 flex items-center justify-center">
+                <div className="text-center">
+                  <QrCode size={100} className="mx-auto mb-2 text-neutral-800" />
+                  <p className="text-xs text-neutral-500">Scan to download</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="pt-8 border-t border-neutral-700 flex flex-col md:flex-row justify-between items-center">
           <p className="text-xs text-neutral-500">
-            &copy; {new Date().getFullYear()} HomeServices. All rights reserved.
+            &copy; {new Date().getFullYear()} Meri Didi. All rights reserved.
           </p>
           <div className="flex items-center space-x-3 mt-4 md:mt-0">
             <DropdownMenu>

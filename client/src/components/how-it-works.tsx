@@ -5,27 +5,21 @@ import { useInView } from "react-intersection-observer";
 const steps = [
   {
     number: 1,
-    title: "Choose Your Service",
-    description: "Browse our range of professional home services and select what you need.",
+    title: "Tell Us What You Need",
+    description: "Share your service requirements and we'll connect you with the right professionals.",
     imagePosition: "right",
   },
   {
     number: 2,
-    title: "Book an Appointment",
-    description: "Select a convenient date and time that works for your schedule.",
+    title: "Choose Your Plan",
+    description: "Select from Basic, Standard, or Premium service plans to match your needs and budget.",
     imagePosition: "left",
   },
   {
     number: 3,
-    title: "Meet Your Professional",
-    description: "A verified expert will arrive at your home ready to provide quality service.",
+    title: "Get a Verified Professional",
+    description: "A thoroughly vetted, trained, and uniformed professional will arrive at your doorstep ready to serve.",
     imagePosition: "right",
-  },
-  {
-    number: 4,
-    title: "Enjoy a Job Well Done",
-    description: "Relax and enjoy your clean, well-maintained home and newfound free time.",
-    imagePosition: "left",
   },
 ];
 
