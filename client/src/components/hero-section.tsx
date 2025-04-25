@@ -71,7 +71,40 @@ function ServiceCarousel() {
         </div>
       </div>
       
-      <div className="p-6 h-full">
+      <div className="p-6 h-full relative">
+        {/* Meri Didi Branding */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ 
+            duration: 0.8, 
+            repeat: Infinity, 
+            repeatType: "reverse", 
+            repeatDelay: 5 
+          }}
+          className="absolute top-1 right-2 z-10 transform -rotate-12"
+        >
+          <div className="bg-gradient-to-r from-primary/90 via-primary to-primary/70 text-primary-foreground px-4 py-2 rounded-lg shadow-lg border-2 border-white flex items-center">
+            <div className="mr-2">
+              <svg width="24" height="24" viewBox="0 0 50 50" className="text-primary-foreground">
+                <defs>
+                  <linearGradient id="apron-gradient-hero" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="white" />
+                    <stop offset="100%" stopColor="#f0f0f0" />
+                  </linearGradient>
+                </defs>
+                <circle cx="25" cy="13" r="7" fill="white" />
+                <path d="M15 20 L15 42 L35 42 L35 20 Z" fill="#333" />
+                <path d="M17 22 L33 22 L33 40 L17 40 Z" fill="white" />
+              </svg>
+            </div>
+            <div>
+              <div className="font-bold text-xl tracking-tight font-heading">Meri Didi</div>
+              <div className="text-xs opacity-90">Home Services</div>
+            </div>
+          </div>
+        </motion.div>
+
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
