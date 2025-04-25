@@ -12,6 +12,9 @@ import PricingSection from "@/components/pricing-section";
 import CTASection from "@/components/cta-section";
 import Footer from "@/components/footer";
 import ContactForm from "@/components/contact-form";
+import TrustBuildingSection from "@/components/trust-building-section";
+import AnimatedServiceProfessionals from "@/components/animated-service-professionals";
+import WorkerRegistration from "@/components/worker-registration";
 
 export default function Home() {
   // Animate sections as they come into view
@@ -71,9 +74,12 @@ export default function Home() {
         >
           <FeaturesSection />
           <HowItWorks />
+          <TrustBuildingSection />
+          <AnimatedServiceProfessionals />
           <TransformationSection />
           <TestimonialsSection />
           <PricingSection />
+          <WorkerRegistration />
           <ContactForm />
           <CTASection />
         </motion.div>
