@@ -61,7 +61,7 @@ export default function Navbar() {
                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
                   </svg>
                 </div>
-                <span className="text-xl font-heading font-bold text-neutral-900">HomeServices</span>
+                <span className="text-xl font-heading font-bold text-neutral-900">Meri Didi</span>
               </a>
             </Link>
 
