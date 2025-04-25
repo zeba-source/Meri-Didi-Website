@@ -56,6 +56,7 @@ export default function RegisterWorkerPage() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [idFile, setIdFile] = useState<File | null>(null);
   const [photoFile, setPhotoFile] = useState<File | null>(null);
+  const [isUploading, setIsUploading] = useState<{id: boolean, photo: boolean}>({id: false, photo: false});
 
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -96,17 +97,26 @@ export default function RegisterWorkerPage() {
   ) => {
     const files = e.target.files;
     if (files && files.length > 0) {
-      if (type === "id") {
-        setIdFile(files[0]);
-      } else {
-        setPhotoFile(files[0]);
-      }
-
-      toast({
-        title: "File uploaded",
-        description: `Your ${type === "id" ? "ID document" : "photo"} has been uploaded.`,
-        variant: "default",
-      });
+      // Set uploading state
+      setIsUploading(prev => ({ ...prev, [type]: true }));
+      
+      // Simulate file upload with a slight delay (would be a real upload in production)
+      setTimeout(() => {
+        if (type === "id") {
+          setIdFile(files[0]);
+        } else {
+          setPhotoFile(files[0]);
+        }
+        
+        // Reset uploading state
+        setIsUploading(prev => ({ ...prev, [type]: false }));
+        
+        toast({
+          title: "File uploaded successfully",
+          description: `Your ${type === "id" ? "ID document" : "photo"} has been uploaded.`,
+          variant: "default",
+        });
+      }, 800); // Simulated upload time
     }
   };
 
@@ -511,63 +521,125 @@ export default function RegisterWorkerPage() {
                       Please upload clear images of your ID and a recent photograph
                     </p>
                     
-                    <div className="border border-dashed border-gray-300 rounded-lg p-6 text-center">
+                    <motion.div 
+                      whileHover={{ boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)" }}
+                      className="border border-dashed border-gray-300 rounded-lg p-6 text-center"
+                    >
                       <div className="mb-4">
-                        <Upload className="mx-auto h-12 w-12 text-gray-400" />
-                        <p className="mt-2 text-sm text-gray-500">Upload ID Proof</p>
+                        <motion.div
+                          initial={{ scale: 1 }}
+                          whileHover={{ scale: 1.05 }}
+                          className="mx-auto h-16 w-16 bg-primary/10 rounded-full flex items-center justify-center"
+                        >
+                          <Upload className="h-8 w-8 text-primary" />
+                        </motion.div>
+                        <p className="mt-2 text-base font-medium text-gray-700">Upload ID Proof</p>
                         <p className="text-xs text-gray-400">
                           (Aadhar Card, PAN Card, etc. as selected above)
                         </p>
                       </div>
                       
-                      <Input
-                        type="file"
-                        accept="image/*,.pdf"
-                        className="hidden"
-                        id="id-upload"
-                        onChange={(e) => handleFileChange(e, "id")}
-                      />
-                      <label htmlFor="id-upload">
-                        <Button type="button" variant="outline" className="mr-2">
-                          Select File
+                      <div className="relative">
+                        <Input
+                          type="file"
+                          accept="image/*,.pdf"
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                          id="id-upload"
+                          onChange={(e) => handleFileChange(e, "id")}
+                        />
+                        <Button 
+                          type="button" 
+                          variant="outline" 
+                          className={`w-full ${idFile ? 'bg-primary/5 border-primary/30' : ''}`}
+                          disabled={isUploading.id}
+                        >
+                          {isUploading.id ? (
+                            <span className="flex items-center">
+                              <svg className="animate-spin -ml-1 mr-3 h-4 w-4 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                              </svg>
+                              Uploading...
+                            </span>
+                          ) : (
+                            <span>{idFile ? 'Change File' : 'Select File'}</span>
+                          )}
                         </Button>
-                      </label>
+                      </div>
                       
                       {idFile && (
-                        <p className="mt-2 text-sm text-green-600 font-medium">
-                          {idFile.name} uploaded
-                        </p>
+                        <motion.div 
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="mt-3 bg-green-50 p-2 rounded-md flex items-center"
+                        >
+                          <CheckCircle2 className="h-4 w-4 text-green-500 mr-2" />
+                          <p className="text-sm text-green-700 font-medium truncate">
+                            {idFile.name}
+                          </p>
+                        </motion.div>
                       )}
-                    </div>
+                    </motion.div>
                     
-                    <div className="border border-dashed border-gray-300 rounded-lg p-6 text-center">
+                    <motion.div 
+                      whileHover={{ boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)" }}
+                      className="border border-dashed border-gray-300 rounded-lg p-6 text-center"
+                    >
                       <div className="mb-4">
-                        <Upload className="mx-auto h-12 w-12 text-gray-400" />
-                        <p className="mt-2 text-sm text-gray-500">Upload Recent Photograph</p>
+                        <motion.div
+                          initial={{ scale: 1 }}
+                          whileHover={{ scale: 1.05 }}
+                          className="mx-auto h-16 w-16 bg-primary/10 rounded-full flex items-center justify-center"
+                        >
+                          <Upload className="h-8 w-8 text-primary" />
+                        </motion.div>
+                        <p className="mt-2 text-base font-medium text-gray-700">Upload Recent Photograph</p>
                         <p className="text-xs text-gray-400">
                           (A clear, passport-size photo with white background)
                         </p>
                       </div>
                       
-                      <Input
-                        type="file"
-                        accept="image/*"
-                        className="hidden"
-                        id="photo-upload"
-                        onChange={(e) => handleFileChange(e, "photo")}
-                      />
-                      <label htmlFor="photo-upload">
-                        <Button type="button" variant="outline" className="mr-2">
-                          Select File
+                      <div className="relative">
+                        <Input
+                          type="file"
+                          accept="image/*"
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                          id="photo-upload"
+                          onChange={(e) => handleFileChange(e, "photo")}
+                        />
+                        <Button 
+                          type="button" 
+                          variant="outline" 
+                          className={`w-full ${photoFile ? 'bg-primary/5 border-primary/30' : ''}`}
+                          disabled={isUploading.photo}
+                        >
+                          {isUploading.photo ? (
+                            <span className="flex items-center">
+                              <svg className="animate-spin -ml-1 mr-3 h-4 w-4 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                              </svg>
+                              Uploading...
+                            </span>
+                          ) : (
+                            <span>{photoFile ? 'Change File' : 'Select File'}</span>
+                          )}
                         </Button>
-                      </label>
+                      </div>
                       
                       {photoFile && (
-                        <p className="mt-2 text-sm text-green-600 font-medium">
-                          {photoFile.name} uploaded
-                        </p>
+                        <motion.div 
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className="mt-3 bg-green-50 p-2 rounded-md flex items-center"
+                        >
+                          <CheckCircle2 className="h-4 w-4 text-green-500 mr-2" />
+                          <p className="text-sm text-green-700 font-medium truncate">
+                            {photoFile.name}
+                          </p>
+                        </motion.div>
                       )}
-                    </div>
+                    </motion.div>
                   </div>
                   
                   <div className="p-4 bg-primary/10 rounded-lg text-sm">
@@ -598,9 +670,26 @@ export default function RegisterWorkerPage() {
                 ) : (
                   <Button 
                     type="submit" 
-                    disabled={isSubmitting || !idFile || !photoFile}
+                    disabled={isSubmitting || !idFile || !photoFile || isUploading.id || isUploading.photo}
+                    className="relative"
                   >
-                    {isSubmitting ? "Submitting..." : "Submit Application"}
+                    {isSubmitting ? (
+                      <span className="flex items-center justify-center">
+                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Submitting Application...
+                      </span>
+                    ) : (
+                      <motion.span
+                        initial={{ scale: 1 }}
+                        whileHover={{ scale: 1.02 }}
+                        className="flex items-center"
+                      >
+                        Submit Application
+                      </motion.span>
+                    )}
                   </Button>
                 )}
               </div>
