@@ -47,18 +47,24 @@ export default function Navbar() {
               <a className="flex items-center space-x-2">
                 <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
                   <svg 
-                    width="20" 
-                    height="20" 
+                    width="24" 
+                    height="24" 
                     viewBox="0 0 24 24" 
                     fill="none" 
                     stroke="currentColor" 
-                    strokeWidth="2" 
+                    strokeWidth="1.5" 
                     strokeLinecap="round" 
                     strokeLinejoin="round" 
                     className="text-primary-foreground"
                   >
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    {/* Maid character silhouette */}
+                    <circle cx="12" cy="7" r="3.5" /> {/* Head */}
+                    <path d="M7 14c0-2.5 2-4 5-4s5 1.5 5 4" /> {/* Shoulders */}
+                    <path d="M8 14v6" /> {/* Left side of dress */}
+                    <path d="M16 14v6" /> {/* Right side of dress */}
+                    <path d="M7 17h10" /> {/* Apron line */}
+                    <path d="M10 14v3" /> {/* Left apron strap */}
+                    <path d="M14 14v3" /> {/* Right apron strap */}
                   </svg>
                 </div>
                 <span className="text-xl font-heading font-bold text-neutral-900">Meri Didi</span>
