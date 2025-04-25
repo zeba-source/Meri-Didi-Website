@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, PlayCircle, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedServiceCard from "./animated-service-card";
+import { Link } from "wouter";
 
 // Service professional data
 const serviceProfessionals = [
@@ -157,13 +158,14 @@ export default function HeroSection() {
             </p>
             
             <div className="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <Button
-                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-6 rounded-md font-medium transition-colors shadow-md hover:shadow-lg flex items-center justify-center h-12"
-                onClick={() => window.location.href = "/register-worker"}
-              >
-                <span>Register as Worker</span>
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Link href="/register-worker">
+                <Button
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-6 rounded-md font-medium transition-colors shadow-md hover:shadow-lg flex items-center justify-center h-12"
+                >
+                  <span>Register as Worker</span>
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
               
               <Button
                 variant="outline"

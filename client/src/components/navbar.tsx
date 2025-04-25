@@ -130,12 +130,13 @@ export default function Navbar() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button 
-              className="hidden md:block bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-md hover:shadow-lg"
-              onClick={() => window.location.href = "/register-worker"}
-            >
-              Register as Worker
-            </Button>
+            <Link href="/register-worker">
+              <Button 
+                className="hidden md:block bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-md hover:shadow-lg"
+              >
+                Register as Worker
+              </Button>
+            </Link>
             
             <Button 
               variant="ghost" 
@@ -172,9 +173,11 @@ export default function Navbar() {
               Security
             </a>
             <div className="pt-4 pb-3 border-t border-neutral-200">
-              <a href="/register-worker" className="block px-3 py-2 mt-1 rounded-md text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90">
-                Register as Worker
-              </a>
+              <Link href="/register-worker">
+                <a className="block px-3 py-2 mt-1 rounded-md text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90">
+                  Register as Worker
+                </a>
+              </Link>
             </div>
           </div>
         </motion.div>

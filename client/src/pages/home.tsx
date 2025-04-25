@@ -8,7 +8,7 @@ import FeaturesSection from "@/components/features-section";
 import HowItWorks from "@/components/how-it-works";
 import TransformationSection from "@/components/transformation-section";
 import TestimonialsSection from "@/components/testimonials-section";
-import PricingSection from "@/components/pricing-section";
+import SecuritySection from "@/components/security-section";
 import CTASection from "@/components/cta-section";
 import Footer from "@/components/footer";
 import ContactForm from "@/components/contact-form";
@@ -73,7 +73,7 @@ export default function Home() {
           <HowItWorks />
           <TransformationSection />
           <TestimonialsSection />
-          <PricingSection />
+          <SecuritySection />
           <ContactForm />
           <CTASection />
         </motion.div>
