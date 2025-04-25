@@ -45,26 +45,52 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/">
               <a className="flex items-center space-x-2">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center overflow-hidden">
                   <svg 
-                    width="24" 
-                    height="24" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="1.5" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
+                    width="30" 
+                    height="30" 
+                    viewBox="0 0 50 50" 
                     className="text-primary-foreground"
                   >
-                    {/* Maid character silhouette */}
-                    <circle cx="12" cy="7" r="3.5" /> {/* Head */}
-                    <path d="M7 14c0-2.5 2-4 5-4s5 1.5 5 4" /> {/* Shoulders */}
-                    <path d="M8 14v6" /> {/* Left side of dress */}
-                    <path d="M16 14v6" /> {/* Right side of dress */}
-                    <path d="M7 17h10" /> {/* Apron line */}
-                    <path d="M10 14v3" /> {/* Left apron strap */}
-                    <path d="M14 14v3" /> {/* Right apron strap */}
+                    {/* Animated 3D maid character */}
+                    <defs>
+                      <linearGradient id="apron-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="white" />
+                        <stop offset="100%" stopColor="#f0f0f0" />
+                      </linearGradient>
+                      <linearGradient id="face-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#ffe0bd" />
+                        <stop offset="100%" stopColor="#ffcd94" />
+                      </linearGradient>
+                      <linearGradient id="dress-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#444" />
+                        <stop offset="100%" stopColor="#222" />
+                      </linearGradient>
+                      <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feDropShadow dx="0" dy="1" stdDeviation="1" floodOpacity="0.3" />
+                      </filter>
+                    </defs>
+                    
+                    {/* Dress base */}
+                    <path d="M15 20 L15 42 L35 42 L35 20 Z" fill="url(#dress-gradient)" />
+                    
+                    {/* Apron */}
+                    <path d="M17 22 L33 22 L33 40 L17 40 Z" fill="url(#apron-gradient)" filter="url(#shadow)" />
+                    <path d="M20 22 L20 16 L23 13 L27 13 L30 16 L30 22" fill="none" stroke="url(#apron-gradient)" strokeWidth="1.5" />
+                    
+                    {/* Head/face */}
+                    <circle cx="25" cy="13" r="7" fill="url(#face-gradient)" filter="url(#shadow)" />
+                    
+                    {/* Hair with highlights */}
+                    <path d="M18 13 Q18 7, 25 6 Q32 7, 32 13" fill="#543" filter="url(#shadow)" />
+                    <path d="M20 13 Q20 9, 25 8 Q30 9, 30 13" fill="#764" filter="url(#shadow)" />
+                    
+                    {/* Eyes */}
+                    <ellipse cx="22" cy="12" rx="1" ry="1.5" fill="#333" />
+                    <ellipse cx="28" cy="12" rx="1" ry="1.5" fill="#333" />
+                    
+                    {/* Smile */}
+                    <path d="M23 15 Q25 17, 27 15" fill="none" stroke="#333" strokeWidth="0.7" />
                   </svg>
                 </div>
                 <span className="text-xl font-heading font-bold text-neutral-900">Meri Didi</span>
