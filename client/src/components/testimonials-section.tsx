@@ -211,12 +211,8 @@ export default function TestimonialsSection() {
   const [activeWorkerIndex, setActiveWorkerIndex] = useState(0);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Auto-play for testimonials
+  // Manual navigation only
   useEffect(() => {
-    autoPlayRef.current = setInterval(() => {
-      setActiveVideoIndex((prev) => (prev + 1) % videoTestimonials.length);
-    }, 5000);
-
     return () => {
       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
     };
