@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star, Play, Award, Clock, Home, ShieldCheck, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import TrustScoreMeter from "./trust-score-meter";
 import { fadeUpVariants, pulseVariants, rotateVariants, staggerContainer } from "@/lib/animation-utils";
 
@@ -277,17 +278,23 @@ export default function TestimonialsSection() {
             </div>
           </div>
           
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true
+            }}
+            className="w-full"
           >
-            {videoTestimonials.slice(activeVideoIndex, activeVideoIndex + 3).map((testimonial, index) => (
-              <VideoTestimonialCard key={testimonial.id} testimonial={testimonial} />
-            ))}
-          </motion.div>
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {videoTestimonials.map((testimonial, index) => (
+                <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 md:basis-1/3">
+                  <VideoTestimonialCard testimonial={testimonial} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
         
         {/* Worker Spotlights */}
