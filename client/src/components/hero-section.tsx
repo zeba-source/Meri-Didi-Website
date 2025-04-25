@@ -150,17 +150,18 @@ export default function HeroSection() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl md:text-5xl font-heading font-bold text-neutral-900 leading-tight">
-              Premium Home Services For Busy Professionals
+              Connect with India's Best Home Service Providers
             </h1>
             <p className="mt-4 text-lg text-neutral-700 max-w-md">
-              Expert professionals at your service. From cleaning to cooking, we bring quality home services to your doorstep.
+              Partner with Meri Didi - India's premier platform connecting service companies with top domestic workers and helping workers find quality employment.
             </p>
             
-            <div className="mt-8 flex space-x-4">
+            <div className="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Button
                 className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-6 rounded-md font-medium transition-colors shadow-md hover:shadow-lg flex items-center justify-center h-12"
+                onClick={() => window.location.href = "/register-worker"}
               >
-                <span>Book Now</span>
+                <span>Register as Worker</span>
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               
@@ -169,7 +170,7 @@ export default function HeroSection() {
                 className="bg-white hover:bg-neutral-100 text-neutral-800 border border-neutral-300 px-6 py-3 rounded-md font-medium transition-colors flex items-center justify-center h-12"
               >
                 <PlayCircle className="mr-2 h-4 w-4" />
-                <span>Watch Demo</span>
+                <span>Watch How It Works</span>
               </Button>
             </div>
             

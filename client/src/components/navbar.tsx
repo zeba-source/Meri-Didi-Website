@@ -107,8 +107,8 @@ export default function Navbar() {
               <a href="#testimonials" className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all">
                 Testimonials
               </a>
-              <a href="#pricing" className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all">
-                Pricing
+              <a href="#security" className="text-neutral-600 hover:text-neutral-900 hover:border-b-2 hover:border-primary px-3 py-2 text-sm font-medium transition-all">
+                Security
               </a>
             </div>
           </div>
@@ -130,14 +130,11 @@ export default function Navbar() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <a href="#" className="hidden md:block text-neutral-700 hover:text-neutral-900 px-3 py-2 text-sm font-medium">
-              Sign In
-            </a>
-            
             <Button 
               className="hidden md:block bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-md hover:shadow-lg"
+              onClick={() => window.location.href = "/register-worker"}
             >
-              Get Started
+              Register as Worker
             </Button>
             
             <Button 
@@ -171,15 +168,12 @@ export default function Navbar() {
             <a href="#testimonials" className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">
               Testimonials
             </a>
-            <a href="#pricing" className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">
-              Pricing
+            <a href="#security" className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">
+              Security
             </a>
             <div className="pt-4 pb-3 border-t border-neutral-200">
-              <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50">
-                Sign In
-              </a>
-              <a href="#" className="block px-3 py-2 mt-1 rounded-md text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90">
-                Get Started
+              <a href="/register-worker" className="block px-3 py-2 mt-1 rounded-md text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90">
+                Register as Worker
               </a>
             </div>
           </div>
