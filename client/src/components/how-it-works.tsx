@@ -5,21 +5,27 @@ import { useInView } from "react-intersection-observer";
 const steps = [
   {
     number: 1,
-    title: "Tell Us Your Need",
-    description: "Share your specific home service requirements with us.",
-    imagePosition: "right" as const,
+    title: "Choose Your Service",
+    description: "Browse our range of professional home services and select what you need.",
+    imagePosition: "right",
   },
   {
     number: 2,
-    title: "Choose a Plan",
-    description: "Select from our Basic, Standard, or Premium service plans.",
-    imagePosition: "left" as const,
+    title: "Book an Appointment",
+    description: "Select a convenient date and time that works for your schedule.",
+    imagePosition: "left",
   },
   {
     number: 3,
-    title: "Get a Verified Professional",
-    description: "Our police-verified, trained professional arrives at your doorstep.",
-    imagePosition: "right" as const,
+    title: "Meet Your Professional",
+    description: "A verified expert will arrive at your home ready to provide quality service.",
+    imagePosition: "right",
+  },
+  {
+    number: 4,
+    title: "Enjoy a Job Well Done",
+    description: "Relax and enjoy your clean, well-maintained home and newfound free time.",
+    imagePosition: "left",
   },
 ];
 
@@ -65,7 +71,7 @@ type StepProps = {
   number: number;
   title: string;
   description: string;
-  imagePosition: any; // Temporarily using 'any' to resolve the type issue
+  imagePosition: "left" | "right";
   index: number;
 };
 

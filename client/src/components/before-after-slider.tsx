@@ -10,28 +10,7 @@ type BeforeAfterSliderProps = {
 export default function BeforeAfterSlider({ title, beforeAlt, afterAlt }: BeforeAfterSliderProps) {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Before and after images should be replaced with your actual images
-  const beforeImage = "https://placehold.co/800x600/e6e6e6/939393?text=Before";
-  const afterImage = "https://placehold.co/800x600/ffe484/ffc425?text=After";
-
-  const updateSliderPosition = (clientX: number) => {
-    if (!containerRef.current) return;
-    
-    const container = containerRef.current;
-    const containerRect = container.getBoundingClientRect();
-    const containerWidth = containerRect.width;
-    const positionX = clientX - containerRect.left;
-    
-    // Calculate percentage position
-    let newPosition = (positionX / containerWidth) * 100;
-    
-    // Clamp values between 0 and 100
-    newPosition = Math.max(0, Math.min(100, newPosition));
-    
-    setSliderPosition(newPosition);
-  };
+  const sliderRef = useRef<HTMLDivElement>(null);
 
   const handleMouseDown = () => {
     setIsDragging(true);
@@ -42,99 +21,92 @@ export default function BeforeAfterSlider({ title, beforeAlt, afterAlt }: Before
   };
 
   const handleMouseMove = (e: MouseEvent) => {
-    if (!isDragging) return;
-    updateSliderPosition(e.clientX);
+    if (!isDragging || !sliderRef.current) return;
+    
+    const sliderRect = sliderRef.current.getBoundingClientRect();
+    const position = ((e.clientX - sliderRect.left) / sliderRect.width) * 100;
+    
+    setSliderPosition(Math.max(0, Math.min(position, 100)));
   };
 
   const handleTouchMove = (e: TouchEvent) => {
-    if (!isDragging) return;
-    updateSliderPosition(e.touches[0].clientX);
+    if (!isDragging || !sliderRef.current) return;
+    
+    const sliderRect = sliderRef.current.getBoundingClientRect();
+    const position = ((e.touches[0].clientX - sliderRect.left) / sliderRect.width) * 100;
+    
+    setSliderPosition(Math.max(0, Math.min(position, 100)));
   };
 
   useEffect(() => {
-    if (isDragging) {
-      window.addEventListener("mousemove", handleMouseMove);
-      window.addEventListener("mouseup", handleMouseUp);
-      window.addEventListener("touchmove", handleTouchMove);
-      window.addEventListener("touchend", handleMouseUp);
-    } else {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
-      window.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("touchend", handleMouseUp);
-    }
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+    document.addEventListener("touchmove", handleTouchMove);
+    document.addEventListener("touchend", handleMouseUp);
     
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
-      window.removeEventListener("touchmove", handleTouchMove);
-      window.removeEventListener("touchend", handleMouseUp);
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("touchmove", handleTouchMove);
+      document.removeEventListener("touchend", handleMouseUp);
     };
   }, [isDragging]);
 
   return (
-    <motion.div 
-      className="max-w-3xl mx-auto"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
+    <div 
+      ref={sliderRef}
+      className="relative rounded-lg shadow-lg overflow-hidden h-80 cursor-ew-resize"
+      onMouseDown={handleMouseDown}
+      onTouchStart={handleMouseDown}
     >
-      <h3 className="text-xl font-bold text-neutral-900 mb-4 text-center">{title}</h3>
+      {/* After image (full width) */}
+      <div className="w-full h-full bg-gradient-to-r from-yellow-50 to-white">
+        <div className="w-full h-full flex items-center justify-center">
+          <div className="p-4 text-center">
+            <h3 className="font-medium text-neutral-900">{afterAlt}</h3>
+            <div className="mt-2 w-16 h-16 rounded-full bg-green-100 mx-auto flex items-center justify-center">
+              <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
       
+      {/* Before image (partial width based on slider) */}
       <div
-        ref={containerRef}
-        className="relative h-[400px] overflow-hidden rounded-xl shadow-xl cursor-grab active:cursor-grabbing"
-        onMouseDown={handleMouseDown}
-        onTouchStart={handleMouseDown}
+        className="absolute top-0 left-0 h-full overflow-hidden"
+        style={{ width: `${sliderPosition}%` }}
       >
-        {/* Before image (full width) */}
-        <div 
-          className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
-          style={{ backgroundImage: `url(${beforeImage})` }}
-        >
-          <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-            <span className="text-white text-xl font-bold px-4 py-2 bg-black/50 rounded-md">{beforeAlt}</span>
-          </div>
-        </div>
-        
-        {/* After image (variable width based on slider) */}
-        <div 
-          className="absolute top-0 left-0 h-full bg-cover bg-center"
-          style={{ 
-            width: `${sliderPosition}%`, 
-            backgroundImage: `url(${afterImage})`,
-            clipPath: `inset(0 0 0 0)` 
-          }}
-        >
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-black text-xl font-bold px-4 py-2 bg-white/70 rounded-md">{afterAlt}</span>
-          </div>
-        </div>
-        
-        {/* Slider control */}
-        <div 
-          className="absolute top-0 h-full z-10"
-          style={{ left: `calc(${sliderPosition}% - 2px)` }}
-        >
-          {/* Vertical divider line */}
-          <div className="w-1 h-full bg-white shadow-md"></div>
-          
-          {/* Drag handle */}
-          <div 
-            className="absolute top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-8 h-8 bg-white border-2 border-neutral-800 rounded-full flex items-center justify-center shadow-lg"
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 8L8 16M8 8L16 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+        <div className="w-full h-full bg-gradient-to-r from-neutral-200 to-neutral-100">
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="p-4 text-center">
+              <h3 className="font-medium text-neutral-900">{beforeAlt}</h3>
+              <div className="mt-2 w-16 h-16 rounded-full bg-red-100 mx-auto flex items-center justify-center">
+                <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       
-      {/* Instructions */}
-      <div className="text-center mt-4 text-neutral-500 text-sm">
-        Drag the slider to see the difference
+      {/* Slider handle */}
+      <motion.div
+        className="absolute top-0 bottom-0 w-1 bg-primary cursor-ew-resize"
+        style={{ left: `${sliderPosition}%` }}
+        whileHover={{ width: "4px" }}
+        whileTap={{ width: "6px" }}
+      >
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-primary-foreground">
+          ⟷
+        </div>
+      </motion.div>
+      
+      <div className="absolute bottom-4 left-4 bg-white/90 px-3 py-1 rounded-full text-sm font-medium">
+        {title}
       </div>
-    </motion.div>
+    </div>
   );
 }
