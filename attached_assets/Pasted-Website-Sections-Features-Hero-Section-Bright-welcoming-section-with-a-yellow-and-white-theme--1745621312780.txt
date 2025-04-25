@@ -1,0 +1,72 @@
+Website Sections & Features:
+Hero Section: Bright, welcoming section with a yellow and white theme, featuring animated 3D characters (chef, sweeper, baby/elder care, etc.) waving or smiling. Include a responsive carousel that highlights each service one by one.
+
+How It Works: Visually animated 3-step scroll interaction:
+
+Tell us your need
+
+Choose your plan (Basic / Standard / Premium)
+
+Get a verified professional at your doorstep
+
+Trust-Building Section with smooth icon animations:
+
+Police-verified staff (shield with glowing animation)
+
+Uniformed, trained professionals (animated cleaning gear)
+
+100% service guarantee
+
+Daily feedback
+
+Assured and punctual workers
+
+Transparent pricing
+
+Trust Score Meter: Section with animated counters and badges:
+
+Rated by 3000+ customers
+
+Operating in 5 cities
+
+98% satisfaction score
+
+Customer Testimonials Carousel: Auto-playing carousel of at least 6 short video testimonials (30 sec) with subtle animations and customer quotes.
+
+Worker Spotlight Gallery: Verified worker photos in slider format with short animated intro clips like:
+“Hi! I’m trained in hygiene & care. Happy to serve!”
+
+Include "Worker of the Week" badge, glowing star effects, on-time service %, and home count served this month.
+
+Before & After Transformation Section: Image sliders or parallax scroll showing messy vs. cleaned home areas. Add animated effects like stain-removal, fresh sparkles, and sanitized icons.
+
+Explainer Animation: Visual walkthrough of hygiene protocol (handwash, gloves, masks, uniform, sanitizer), preferably via a 3D animated character or infographic style.
+
+Security Assurance Section: Flow-style animation showing: Database check → ID verification → Face match → Address verification → Approved for service.
+
+What’s in a Worker’s Kit? Fun animated pop-outs:
+
+Duster flies out
+
+Mop slides in
+
+Gloves pop
+
+Eco-friendly spray sparkles
+
+Claim Resolution Banner: Tagline - "We’re here when you need us most."
+
+Add a calm, trustworthy 3D visual to support it.
+
+Design & Theme:
+Primary colors: Yellow & White (clean, fresh look)
+
+Secondary accents: Soft greys, sky blue, light green (for eco vibes)
+
+Use glassmorphism / card-style layout
+
+Smooth scroll, hover effects, Lottie/GSAP/Framer animations
+
+Fully mobile responsive with a sticky navigation bar and footer
+
+🎯 Goal: Make the website trustworthy, engaging, and professional, with high visual appeal and clear calls-to-action.

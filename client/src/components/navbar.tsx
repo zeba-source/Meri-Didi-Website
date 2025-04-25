@@ -44,7 +44,7 @@ export default function Navbar() {
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
             <Link href="/">
-              <a className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 cursor-pointer">
                 <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center overflow-hidden">
                   <svg 
                     width="30" 
@@ -94,7 +94,7 @@ export default function Navbar() {
                   </svg>
                 </div>
                 <span className="text-xl font-heading font-bold text-neutral-900">Meri Didi</span>
-              </a>
+              </div>
             </Link>
 
             <div className="hidden md:flex md:ml-10 space-x-8">
@@ -174,9 +174,9 @@ export default function Navbar() {
             </a>
             <div className="pt-4 pb-3 border-t border-neutral-200">
               <Link href="/register-worker">
-                <a className="block px-3 py-2 mt-1 rounded-md text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90">
+                <div className="block px-3 py-2 mt-1 rounded-md text-base font-medium bg-primary text-primary-foreground hover:bg-primary/90 cursor-pointer">
                   Register as Worker
-                </a>
+                </div>
               </Link>
             </div>
           </div>
