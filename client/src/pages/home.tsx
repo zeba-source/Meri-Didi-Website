@@ -60,23 +60,13 @@ export default function Home() {
       <main>
         <HeroSection />
         
-        <motion.div
-          ref={ref}
-          animate={controls}
-          initial="hidden"
-          variants={{
-            visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-            hidden: { opacity: 0, y: 50 }
-          }}
-        >
-          <FeaturesSection />
-          <HowItWorks />
-          <TransformationSection />
-          <TestimonialsSection />
-          <SecuritySection />
-          <ContactForm />
-          <CTASection />
-        </motion.div>
+        <FeaturesSection />
+        <HowItWorks />
+        <TransformationSection />
+        <TestimonialsSection />
+        <SecuritySection />
+        <ContactForm />
+        <CTASection />
       </main>
       
       <Footer />
