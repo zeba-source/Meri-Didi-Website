@@ -44,11 +44,7 @@ const features = [
     title: "Elder Care",
     description: "Compassionate and professional care for elderly family members."
   },
-  {
-    icon: <Bug className="text-secondary text-xl" />,
-    title: "Pest Control",
-    description: "Expert pest control solutions for all types of infestations."
-  }
+  
 ];
 
 const FeatureCard = ({ icon, title, description, index }: { 
