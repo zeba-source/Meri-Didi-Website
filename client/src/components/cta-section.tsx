@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { AppleIcon, Smartphone, QrCode, User, Check } from "lucide-react";
+import { AppleIcon, Smartphone, QrCode, Check } from "lucide-react";
 
 export default function CTASection() {
   return (
@@ -10,7 +10,7 @@ export default function CTASection() {
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 0, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             className="space-y-6"
@@ -21,6 +21,28 @@ export default function CTASection() {
             <p className="text-lg text-neutral-600">
               Get instant access to verified professionals, exclusive offers, and seamless booking experience right from your phone.
             </p>
+
+            {/* Featured Services */}
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold mb-6">Our featured services</h3>
+              <div className="grid grid-cols-3 gap-4">
+                {[
+                  { name: "Domestic help", icon: "🏠" },
+                  { name: "Babysitters", icon: "👶" },
+                  { name: "Cooks", icon: "👨‍🍳" },
+                  { name: "All-rounders", icon: "🏃" },
+                  { name: "24 hrs - Full Time", icon: "⏰" },
+                  { name: "24 Hrs - Japas", icon: "🧹" }
+                ].map((service) => (
+                  <div key={service.name} className="text-center">
+                    <div className="w-16 h-16 mx-auto bg-white rounded-full shadow-md flex items-center justify-center mb-2">
+                      <span className="text-2xl">{service.icon}</span>
+                    </div>
+                    <p className="text-sm font-medium">{service.name}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
 
             {/* Download Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
@@ -51,35 +73,10 @@ export default function CTASection() {
               </motion.a>
             </div>
 
-            {/* Stats and Trust Indicators */}
-            <div className="mt-8 space-y-6">
-              <div className="flex items-center space-x-4">
-                <div className="flex -space-x-2">
-                  {[...Array(3)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: i * 0.1 }}
-                      className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center ring-2 ring-white"
-                    >
-                      {String.fromCharCode(65 + i)}
-                    </motion.div>
-                  ))}
-                </div>
-                <div>
-                  <p className="font-semibold">Joined by 10,000+ users</p>
-                  <p className="text-sm text-neutral-500">in the last month</p>
-                </div>
-              </div>
-              
-              <motion.div 
-                className="flex items-center space-x-2 text-sm bg-white p-3 rounded-lg shadow-sm w-fit"
-                whileHover={{ y: -2 }}
-              >
-                <Check className="text-primary" size={16} />
-                <span>Verified Professionals</span>
-              </motion.div>
+            {/* Startup India Recognition */}
+            <div className="flex items-center space-x-4 mt-8">
+              <span className="text-sm text-neutral-600">Recognized by</span>
+              <img src="/startup-india-logo.png" alt="Startup India" className="h-8" />
             </div>
           </motion.div>
 
@@ -107,7 +104,7 @@ export default function CTASection() {
                 </div>
               </motion.div>
 
-              {/* Floating QR Code */}
+              {/* QR Code */}
               <motion.div 
                 className="absolute -right-20 top-1/4 bg-white p-4 rounded-xl shadow-lg"
                 animate={{ y: [0, -5, 0] }}
@@ -117,7 +114,7 @@ export default function CTASection() {
                 <p className="text-xs text-center mt-2 text-neutral-600">Scan to download</p>
               </motion.div>
 
-              {/* Features Badge */}
+              {/* Instant Booking Badge */}
               <motion.div 
                 className="absolute -left-16 bottom-1/4 bg-white px-4 py-2 rounded-lg shadow-lg"
                 animate={{ x: [0, 5, 0] }}
