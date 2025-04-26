@@ -2,6 +2,11 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+// Added for app store buttons (replace with actual imports)
+const AppleIcon = () => <svg role="img" viewBox="0 0 24 24"></svg>; // Placeholder
+const GooglePlayIcon = () => <svg role="img" viewBox="0 0 24 24"></svg>; // Placeholder
+
+
 export default function CTASection() {
   return (
     <section className="py-20 bg-gradient-to-br from-primary to-primary/80">
@@ -18,16 +23,30 @@ export default function CTASection() {
           <p className="mt-4 text-lg text-primary-foreground/80 max-w-2xl mx-auto">
             Join thousands of busy professionals who have reclaimed their time and enjoy a pristine home.
           </p>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-col sm:flex-row gap-4"> {/* Changed to flexbox for app buttons */}
             <Button
               size="lg"
-              className="inline-flex items-center bg-primary-foreground hover:bg-primary-foreground/90 text-primary px-8 py-4 rounded-md font-medium transition-colors shadow-lg hover:shadow-xl text-lg h-14"
+              className="bg-black hover:bg-neutral-900 text-white px-8 py-4 rounded-md font-medium transition-colors shadow-lg hover:shadow-xl text-lg h-14 flex items-center justify-center space-x-3"
             >
-              <span>Book Your First Service</span>
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <AppleIcon className="h-6 w-6" />
+              <div>
+                <div className="text-xs">Download on the</div>
+                <div className="text-sm font-semibold">App Store</div>
+              </div>
             </Button>
-            <p className="mt-4 text-sm text-primary-foreground/80">100% satisfaction guarantee. No contracts.</p>
+
+            <Button
+              size="lg"
+              className="bg-black hover:bg-neutral-900 text-white px-8 py-4 rounded-md font-medium transition-colors shadow-lg hover:shadow-xl text-lg h-14 flex items-center justify-center space-x-3"
+            >
+              <GooglePlayIcon className="h-6 w-6" />
+              <div>
+                <div className="text-xs">GET IT ON</div>
+                <div className="text-sm font-semibold">Google Play</div>
+              </div>
+            </Button>
           </div>
+          <p className="mt-4 text-sm text-primary-foreground/80">100% satisfaction guarantee. No contracts.</p>
         </motion.div>
       </div>
     </section>
