@@ -14,33 +14,33 @@ import {
 const features = [
   {
     icon: <TimerReset className="text-secondary text-xl" />,
-    title: "Fast Response Time",
-    description: "Our professionals are available on short notice for all your home service needs."
+    title: "House Cleaning",
+    description: "Complete home cleaning including brooming, mopping, dusting, and bathroom cleaning."
   },
   {
     icon: <Tag className="text-secondary text-xl" />,
-    title: "Flexible Booking",
-    description: "Schedule services at times that work best for your busy lifestyle."
+    title: "Kitchen Services",
+    description: "Professional dishwashing, kitchen cleaning, and organization services."
   },
   {
     icon: <Globe className="text-secondary text-xl" />,
-    title: "Multi-Language Support",
-    description: "Our professionals speak multiple languages to better serve diverse communities."
+    title: "Elder Care",
+    description: "Compassionate and professional care services for elderly family members."
   },
   {
     icon: <Clock className="text-secondary text-xl" />,
-    title: "Scheduled Services",
-    description: "Set up regular appointments for ongoing maintenance of your home."
+    title: "Pest Control",
+    description: "Comprehensive pest control solutions for all types of infestations."
   },
   {
     icon: <ShieldCheck className="text-secondary text-xl" />,
-    title: "Verified Professionals",
-    description: "All service providers undergo thorough background checks and verification."
+    title: "Deep Cleaning",
+    description: "Thorough deep cleaning services including carpet cleaning and sanitization."
   },
   {
     icon: <TrendingUp className="text-secondary text-xl" />,
-    title: "Quality Guarantees",
-    description: "We stand behind our work with satisfaction guarantees on all services."
+    title: "Specialized Services",
+    description: "Additional services like laundry, ironing, and window cleaning."
   }
 ];
 
@@ -106,7 +106,7 @@ export default function FeaturesSection() {
               <Star className="text-secondary h-6 w-6" />
             </div>
           </div>
-          <h2 className="text-3xl font-heading font-bold text-neutral-900">Premium Services For Your Home</h2>
+          <h2 className="text-3xl font-heading font-bold text-neutral-900">Services For Your Home</h2>
           <p className="mt-4 text-lg text-neutral-700 max-w-2xl mx-auto">
             Quality services delivered by vetted professionals to keep your home running smoothly.
           </p>
