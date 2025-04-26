@@ -84,8 +84,15 @@ export default function Navbar() {
                   </svg>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-2xl font-heading font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">Meri Didi</span>
-                  <span className="text-xs text-neutral-500 font-medium -mt-1">Home Services</span>
+                  <div className="flex items-baseline">
+                    <span className="text-2xl font-heading font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/90 to-primary/70" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                      MERI
+                    </span>
+                    <span className="text-2xl font-heading font-light tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-primary/90 to-primary/70 ml-1.5" style={{ letterSpacing: '0.05em' }}>
+                      DIDI
+                    </span>
+                  </div>
+                  <span className="text-[0.65rem] uppercase tracking-[0.2em] text-neutral-500 font-medium -mt-0.5 ml-0.5">Home Services</span>
                 </div>
               </div>
             </Link>
