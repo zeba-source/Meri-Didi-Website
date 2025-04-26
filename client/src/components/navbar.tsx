@@ -44,56 +44,49 @@ export default function Navbar() {
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
             <Link href="/">
-              <div className="flex items-center space-x-2 cursor-pointer">
-                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center overflow-hidden">
+              <div className="flex items-center space-x-3 cursor-pointer">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center overflow-hidden shadow-lg">
                   <svg 
-                    width="30" 
-                    height="30" 
+                    width="36" 
+                    height="36" 
                     viewBox="0 0 50 50" 
-                    className="text-primary-foreground"
+                    className="text-primary-foreground drop-shadow-md"
                   >
-                    {/* Animated 3D maid character */}
                     <defs>
                       <linearGradient id="apron-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor="white" />
-                        <stop offset="100%" stopColor="#f0f0f0" />
+                        <stop offset="100%" stopColor="#f8f8f8" />
                       </linearGradient>
                       <linearGradient id="face-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor="#ffe0bd" />
                         <stop offset="100%" stopColor="#ffcd94" />
                       </linearGradient>
-                      <linearGradient id="dress-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#444" />
-                        <stop offset="100%" stopColor="#222" />
-                      </linearGradient>
-                      <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feDropShadow dx="0" dy="1" stdDeviation="1" floodOpacity="0.3" />
+                      <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="1" result="blur" />
+                        <feFlood floodColor="white" floodOpacity="0.3" />
+                        <feComposite in2="blur" operator="in" />
+                        <feComposite in="SourceGraphic" />
                       </filter>
                     </defs>
                     
-                    {/* Dress base */}
-                    <path d="M15 20 L15 42 L35 42 L35 20 Z" fill="url(#dress-gradient)" />
+                    <path d="M17 22 L33 22 L33 40 L17 40 Z" fill="url(#apron-gradient)" filter="url(#glow)" />
+                    <path d="M20 22 L20 16 L23 13 L27 13 L30 16 L30 22" fill="none" stroke="url(#apron-gradient)" strokeWidth="2" />
                     
-                    {/* Apron */}
-                    <path d="M17 22 L33 22 L33 40 L17 40 Z" fill="url(#apron-gradient)" filter="url(#shadow)" />
-                    <path d="M20 22 L20 16 L23 13 L27 13 L30 16 L30 22" fill="none" stroke="url(#apron-gradient)" strokeWidth="1.5" />
+                    <circle cx="25" cy="13" r="7" fill="url(#face-gradient)" filter="url(#glow)" />
                     
-                    {/* Head/face */}
-                    <circle cx="25" cy="13" r="7" fill="url(#face-gradient)" filter="url(#shadow)" />
+                    <path d="M18 13 Q18 7, 25 6 Q32 7, 32 13" fill="#543" />
+                    <path d="M20 13 Q20 9, 25 8 Q30 9, 30 13" fill="#764" className="opacity-80" />
                     
-                    {/* Hair with highlights */}
-                    <path d="M18 13 Q18 7, 25 6 Q32 7, 32 13" fill="#543" filter="url(#shadow)" />
-                    <path d="M20 13 Q20 9, 25 8 Q30 9, 30 13" fill="#764" filter="url(#shadow)" />
+                    <circle cx="22" cy="12" r="1.2" fill="#333" />
+                    <circle cx="28" cy="12" r="1.2" fill="#333" />
                     
-                    {/* Eyes */}
-                    <ellipse cx="22" cy="12" rx="1" ry="1.5" fill="#333" />
-                    <ellipse cx="28" cy="12" rx="1" ry="1.5" fill="#333" />
-                    
-                    {/* Smile */}
-                    <path d="M23 15 Q25 17, 27 15" fill="none" stroke="#333" strokeWidth="0.7" />
+                    <path d="M23 15 Q25 16.5, 27 15" fill="none" stroke="#333" strokeWidth="1" strokeLinecap="round" />
                   </svg>
                 </div>
-                <span className="text-xl font-heading font-bold text-neutral-900">Meri Didi</span>
+                <div className="flex flex-col">
+                  <span className="text-2xl font-heading font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">Meri Didi</span>
+                  <span className="text-xs text-neutral-500 font-medium -mt-1">Home Services</span>
+                </div>
               </div>
             </Link>
 
