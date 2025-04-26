@@ -11,36 +11,43 @@ import {
   Star 
 } from "lucide-react";
 
+import { Broom, Mop, KitchenPot, Shower, Brush, Heart, Bug } from "lucide-react";
+
 const features = [
   {
-    icon: <TimerReset className="text-secondary text-xl" />,
-    title: "House Cleaning",
-    description: "Complete home cleaning including brooming, mopping, dusting, and bathroom cleaning."
+    icon: <Broom className="text-secondary text-xl" />,
+    title: "Brooming",
+    description: "Professional floor sweeping to keep your home dust-free and clean."
   },
   {
-    icon: <Tag className="text-secondary text-xl" />,
-    title: "Kitchen Services",
-    description: "Professional dishwashing, kitchen cleaning, and organization services."
+    icon: <Mop className="text-secondary text-xl" />,
+    title: "Mopping",
+    description: "Thorough floor mopping service for spotless and hygienic floors."
   },
   {
-    icon: <Globe className="text-secondary text-xl" />,
+    icon: <KitchenPot className="text-secondary text-xl" />,
+    title: "Dishwashing",
+    description: "Complete kitchen cleanup and professional dishwashing service."
+  },
+  {
+    icon: <Shower className="text-secondary text-xl" />,
+    title: "Bathroom Cleaning",
+    description: "Deep bathroom sanitization and cleaning service."
+  },
+  {
+    icon: <Brush className="text-secondary text-xl" />,
+    title: "Dusting",
+    description: "Thorough dusting of furniture, fixtures, and surfaces."
+  },
+  {
+    icon: <Heart className="text-secondary text-xl" />,
     title: "Elder Care",
-    description: "Compassionate and professional care services for elderly family members."
+    description: "Compassionate and professional care for elderly family members."
   },
   {
-    icon: <Clock className="text-secondary text-xl" />,
+    icon: <Bug className="text-secondary text-xl" />,
     title: "Pest Control",
-    description: "Comprehensive pest control solutions for all types of infestations."
-  },
-  {
-    icon: <ShieldCheck className="text-secondary text-xl" />,
-    title: "Deep Cleaning",
-    description: "Thorough deep cleaning services including carpet cleaning and sanitization."
-  },
-  {
-    icon: <TrendingUp className="text-secondary text-xl" />,
-    title: "Specialized Services",
-    description: "Additional services like laundry, ironing, and window cleaning."
+    description: "Expert pest control solutions for all types of infestations."
   }
 ];
 
