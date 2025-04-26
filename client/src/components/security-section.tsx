@@ -134,14 +134,8 @@ export default function SecuritySection() {
             </p>
           </motion.div>
 
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-5 gap-6 bg-neutral-50 p-6 rounded-xl"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-          >
-            <motion.div variants={bounceVariants} className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 bg-neutral-50 p-6 rounded-xl">
+            <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
               <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-3">
                 <svg className="w-8 h-8 text-blue-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8V11H7V8Z" fill="currentColor" fillOpacity="0.2"/>
@@ -151,9 +145,9 @@ export default function SecuritySection() {
               </div>
               <h4 className="font-semibold">Uniform</h4>
               <p className="text-sm text-center text-neutral-600">Clean, pressed uniform daily</p>
-            </motion.div>
+            </div>
 
-            <motion.div variants={bounceVariants} className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
+            <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
               <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-3">
                 <svg className="w-8 h-8 text-green-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 10L7 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -161,14 +155,13 @@ export default function SecuritySection() {
                   <path d="M15 10L15 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                   <path d="M9 6H9.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                   <path d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z" stroke="currentColor" strokeWidth="2"/>
                 </svg>
               </div>
               <h4 className="font-semibold">Handwash</h4>
               <p className="text-sm text-center text-neutral-600">Regular handwashing protocol</p>
-            </motion.div>
+            </div>
 
-            <motion.div variants={bounceVariants} className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
+            <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
               <div className="w-16 h-16 rounded-full bg-yellow-100 flex items-center justify-center mb-3">
                 <svg className="w-8 h-8 text-yellow-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" fill="currentColor" fillOpacity="0.2"/>
@@ -178,9 +171,9 @@ export default function SecuritySection() {
               </div>
               <h4 className="font-semibold">Mask</h4>
               <p className="text-sm text-center text-neutral-600">Fresh mask changed regularly</p>
-            </motion.div>
+            </div>
 
-            <motion.div variants={bounceVariants} className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
+            <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
               <div className="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-3">
                 <svg className="w-8 h-8 text-purple-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 14C5.34315 14 4 15.3431 4 17C4 18.6569 5.34315 20 7 20C8.65685 20 10 18.6569 10 17C10 15.3431 8.65685 14 7 14Z" fill="currentColor" fillOpacity="0.2"/>
@@ -192,9 +185,9 @@ export default function SecuritySection() {
               </div>
               <h4 className="font-semibold">Gloves</h4>
               <p className="text-sm text-center text-neutral-600">Fresh gloves for each task</p>
-            </motion.div>
+            </div>
 
-            <motion.div variants={bounceVariants} className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
+            <div className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md">
               <div className="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mb-3">
                 <svg className="w-8 h-8 text-red-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M17 8H19.1707C20.1788 8 20.9933 8.81553 20.9933 9.82364C20.9933 10.2473 20.8423 10.6568 20.5654 10.9805L19 12.8139" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
@@ -207,8 +200,8 @@ export default function SecuritySection() {
               </div>
               <h4 className="font-semibold">Sanitizer</h4>
               <p className="text-sm text-center text-neutral-600">Regular sanitization</p>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
 
         {/* Worker's Kit Section */}
