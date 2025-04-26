@@ -11,31 +11,31 @@ import {
   Star 
 } from "lucide-react";
 
-import { Broom, Mop, KitchenPot, Shower, Brush, Heart, Bug } from "lucide-react";
+import { Trash2, Droplet, Utensils, Bath, Feather, Heart, Bug } from "lucide-react";
 
 const features = [
   {
-    icon: <Broom className="text-secondary text-xl" />,
+    icon: <Trash2 className="text-secondary text-xl" />,
     title: "Brooming",
     description: "Professional floor sweeping to keep your home dust-free and clean."
   },
   {
-    icon: <Mop className="text-secondary text-xl" />,
+    icon: <Droplet className="text-secondary text-xl" />,
     title: "Mopping",
     description: "Thorough floor mopping service for spotless and hygienic floors."
   },
   {
-    icon: <KitchenPot className="text-secondary text-xl" />,
+    icon: <Utensils className="text-secondary text-xl" />,
     title: "Dishwashing",
     description: "Complete kitchen cleanup and professional dishwashing service."
   },
   {
-    icon: <Shower className="text-secondary text-xl" />,
+    icon: <Bath className="text-secondary text-xl" />,
     title: "Bathroom Cleaning",
     description: "Deep bathroom sanitization and cleaning service."
   },
   {
-    icon: <Brush className="text-secondary text-xl" />,
+    icon: <Feather className="text-secondary text-xl" />,
     title: "Dusting",
     description: "Thorough dusting of furniture, fixtures, and surfaces."
   },
