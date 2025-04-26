@@ -93,22 +93,15 @@ export default function SecuritySection() {
           </p>
         </motion.div>
 
-        <motion.div
-          className="relative"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-        >
+        <div className="relative">
           {/* Flow line */}
           <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary/30 via-primary to-primary/30 transform -translate-y-1/2 hidden md:block"></div>
-          
+
           {/* Security steps */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
             {securitySteps.map((step, index) => (
-              <motion.div
+              <div
                 key={index}
-                variants={fadeUpVariants}
                 className="bg-white rounded-xl shadow-lg p-6 border border-neutral-100 relative flex flex-col items-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
               >
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
@@ -119,10 +112,10 @@ export default function SecuritySection() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                 <p className="text-neutral-600">{step.description}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Worker's Hygiene Protocol Section */}
         <div className="mt-20">
@@ -179,7 +172,7 @@ export default function SecuritySection() {
               <div className="w-16 h-16 rounded-full bg-yellow-100 flex items-center justify-center mb-3">
                 <svg className="w-8 h-8 text-yellow-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" fill="currentColor" fillOpacity="0.2"/>
-                  <path d="M3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11H5C3.89543 11 3 11.8954 3 13Z" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" stroke="currentColor" strokeWidth="2"/>
                   <path d="M16 11V7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7V11" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
               </div>
@@ -227,7 +220,7 @@ export default function SecuritySection() {
           transition={{ duration: 0.5 }}
         >
           <h3 className="text-2xl font-bold mb-6 text-center">What's in a Worker's Kit?</h3>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <motion.div 
               className="bg-white rounded-lg p-4 shadow-md text-center"
@@ -245,7 +238,7 @@ export default function SecuritySection() {
               <h4 className="font-semibold">Duster</h4>
               <p className="text-sm text-neutral-600">Microfiber for dust-free surfaces</p>
             </motion.div>
-            
+
             <motion.div 
               className="bg-white rounded-lg p-4 shadow-md text-center"
               initial={{ x: -100, opacity: 0 }}
@@ -261,7 +254,7 @@ export default function SecuritySection() {
               <h4 className="font-semibold">Mop</h4>
               <p className="text-sm text-neutral-600">Advanced cleaning technology</p>
             </motion.div>
-            
+
             <motion.div 
               className="bg-white rounded-lg p-4 shadow-md text-center"
               initial={{ x: -100, opacity: 0 }}
@@ -277,7 +270,7 @@ export default function SecuritySection() {
               <h4 className="font-semibold">Eco Spray</h4>
               <p className="text-sm text-neutral-600">Environment-friendly cleaning</p>
             </motion.div>
-            
+
             <motion.div 
               className="bg-white rounded-lg p-4 shadow-md text-center"
               initial={{ x: -100, opacity: 0 }}
@@ -305,7 +298,7 @@ export default function SecuritySection() {
           transition={{ duration: 0.5 }}
         >
           <h3 className="text-2xl md:text-3xl font-bold text-center mb-10">Why Trust Meri Didi?</h3>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {trustBuildingFeatures.map((feature, index) => (
               <motion.div
