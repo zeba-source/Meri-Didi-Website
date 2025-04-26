@@ -256,26 +256,8 @@ export default function TestimonialsSection() {
         
         {/* Video Testimonials */}
         <div className="mb-20">
-          <div className="flex justify-between items-center mb-8">
+          <div className="mb-8">
             <h3 className="text-2xl font-bold">Video Testimonials</h3>
-            <div className="flex space-x-4">
-              <Button 
-                variant="outline" 
-                size="icon"
-                onClick={prevVideoTestimonial}
-                className="rounded-full"
-              >
-                <ChevronLeft className="h-4 w-4" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="icon"
-                onClick={nextVideoTestimonial}
-                className="rounded-full"
-              >
-                <ChevronRight className="h-4 w-4" />
-              </Button>
-            </div>
           </div>
           
           <Carousel
