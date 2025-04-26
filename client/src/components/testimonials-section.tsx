@@ -323,64 +323,35 @@ export default function TestimonialsSection() {
         {/* Trust Badges */}
         <div className="bg-white rounded-xl p-8 shadow-md mb-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div 
-              variants={fadeUpVariants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="flex items-center"
-            >
-              <motion.div 
-                variants={rotateVariants}
-                className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mr-4"
-              >
+            <div className="flex items-center">
+              <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0 mr-4">
                 <ShieldCheck className="h-8 w-8 text-blue-600" />
-              </motion.div>
+              </div>
               <div>
                 <h4 className="font-semibold text-lg">100% Verified</h4>
                 <p className="text-neutral-600">All workers verified and background-checked</p>
               </div>
-            </motion.div>
+            </div>
             
-            <motion.div 
-              variants={fadeUpVariants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="flex items-center"
-            >
-              <motion.div 
-                variants={rotateVariants}
-                className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mr-4"
-              >
+            <div className="flex items-center">
+              <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mr-4">
                 <Home className="h-8 w-8 text-green-600" />
-              </motion.div>
+              </div>
               <div>
                 <h4 className="font-semibold text-lg">250,000+ Homes</h4>
                 <p className="text-neutral-600">Trusted by households across India</p>
               </div>
-            </motion.div>
+            </div>
             
-            <motion.div 
-              variants={fadeUpVariants}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="flex items-center"
-            >
-              <motion.div 
-                variants={rotateVariants}
-                className="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0 mr-4"
-              >
+            <div className="flex items-center">
+              <div className="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0 mr-4">
                 <Sparkles className="h-8 w-8 text-purple-600" />
-              </motion.div>
+              </div>
               <div>
                 <h4 className="font-semibold text-lg">Satisfaction Guaranteed</h4>
                 <p className="text-neutral-600">100% money-back if you're not satisfied</p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
         
